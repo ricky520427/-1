@@ -1,0 +1,140 @@
+
+
+<html>
+
+<head>
+    <p>遊戲說明:使用滑鼠點擊小火龍可以加分,若點錯則會扣分(按播放會有音樂)</p>
+</head>
+
+<script>
+//var timer = setInterval("change()",500);
+var timer = setInterval();
+var score = 0;
+function playAudio() {
+        const audio = document.createElement("audio");
+        audio.src = "my.mp3";
+        audio.play();
+      }
+
+
+
+function change()
+{
+  images = ["1.png","2.png","3.png"];
+
+  r1 = Math.floor(Math.random() * 2);
+  r2 = Math.floor(Math.random() * 2);
+  r3 = Math.floor(Math.random() * 2);
+  r4 = Math.floor(Math.random() * 2);
+  r5 = Math.floor(Math.random() * 2);
+  r6 = Math.floor(Math.random() * 2);
+  r7 = Math.floor(Math.random() * 2);
+  r8 = Math.floor(Math.random() * 2);
+  r9 = Math.floor(Math.random() * 2);
+ 
+
+  document.getElementById("d1").innerHTML="<img src='" + images[r1] + "' onclick='javascript:{hit(1," + r1 + ");}'>";
+  document.getElementById("d2").innerHTML="<img src='" + images[r2] + "' onclick='javascript:{hit(2," + r2 + ");}'>";
+  document.getElementById("d3").innerHTML="<img src='" + images[r3] + "' onclick='javascript:{hit(3," + r3 + ");}'>";
+  document.getElementById("d4").innerHTML="<img src='" + images[r4] + "' onclick='javascript:{hit(4," + r4 + ");}'>";
+  document.getElementById("d5").innerHTML="<img src='" + images[r4] + "' onclick='javascript:{hit(5," + r5 + ");}'>";
+  document.getElementById("d6").innerHTML="<img src='" + images[r5] + "' onclick='javascript:{hit(6," + r6 + ");}'>";
+  document.getElementById("d7").innerHTML="<img src='" + images[r6] + "' onclick='javascript:{hit(7," + r7 + ");}'>";
+  document.getElementById("d8").innerHTML="<img src='" + images[r7] + "' onclick='javascript:{hit(8," + r8 + ");}'>";
+  document.getElementById("d9").innerHTML="<img src='" + images[r8] + "' onclick='javascript:{hit(9," + r9 + ");}'>";
+
+}
+
+function hit(d,r)
+{
+  if (r==1)
+  {
+    if (d==1)
+    {
+      document.getElementById("d1").innerHTML="<img src='" + images[2] + "'>";
+    }
+    else if (d==2)
+    {
+      document.getElementById("d2").innerHTML="<img src='" + images[2] + "'>";
+    }
+    else if (d==3)
+    {
+      document.getElementById("d3").innerHTML="<img src='" + images[2] + "'>";
+    }
+    else if (d==4)
+    {
+      document.getElementById("d3").innerHTML="<img src='" + images[2] + "'>";
+    }
+    else if (d==5)
+    {
+      document.getElementById("d3").innerHTML="<img src='" + images[2] + "'>";
+    }
+    else if (d==6)
+    {
+      document.getElementById("d3").innerHTML="<img src='" + images[2] + "'>";
+    }
+    else if (d==7)
+    {
+      document.getElementById("d3").innerHTML="<img src='" + images[2] + "'>";
+    }
+    else if (d==8)
+    {
+      document.getElementById("d3").innerHTML="<img src='" + images[2] + "'>";
+    }
+    else if (d==9)
+    {
+      document.getElementById("d3").innerHTML="<img src='" + images[2] + "'>";
+    }
+    score=score+1;
+    document.getElementById("s").innerHTML=score;
+  }
+  else 
+ {
+    score=score-1;
+    document.getElementById("s").innerHTML=score;
+  }
+}
+
+
+
+function start()
+{
+  score = 0;
+  timer = setInterval("change()",1000);
+}
+
+function stop()
+{
+  clearInterval(timer); 
+}
+</script>
+<button onclick="playAudio();">播放</button>
+
+<body>
+
+<table border="1">
+<tr>
+<td><div id="d1"><img src="1.png"></div></td>
+<td><div id="d2"><img src="1.png"></div></td>
+<td><div id="d3"><img src="1.png"></div></td>
+</tr>
+<tr>
+    <td><div id="d4"><img src="1.png"></div></td>
+    <td><div id="d5"><img src="1.png"></div></td>
+    <td><div id="d6"><img src="1.png"></div></td>
+    </tr>
+    <tr>
+        <td><div id="d7"><img src="1.png"></div></td>
+        <td><div id="d8"><img src="1.png"></div></td>
+        <td><div id="d9"><img src="1.png"></div></td>
+        </tr>
+</table>
+
+<input type="button" value="START" onclick="javascript:{start();}">
+<input type="button" value="STOP" onclick="javascript:{stop();}">
+
+<div id="s">0</div>
+
+</body>
+
+</html>
